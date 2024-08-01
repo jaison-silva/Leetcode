@@ -11,7 +11,7 @@ var secondHighest = function(s) {
         }
     }
     
-    if(uniqueNumbers.length == 1){
+    if(uniqueNumbers.size == 0 || uniqueNumbers.size == 1){
         return -1
     }
 
@@ -20,8 +20,5 @@ var secondHighest = function(s) {
 
     const size = arr.length
 
-    if(size<2){
-        return -1
-    }
     return arr[size-2]
 };
