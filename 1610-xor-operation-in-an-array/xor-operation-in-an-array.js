@@ -9,9 +9,8 @@ var xorOperation = function(n, start) {
         arr[i] = start + 2 * i
     }
 
-    const result =  arr.reduce((e,acc)=>{
+    return arr.reduce((e,acc)=>{
         return e ^ acc
     },0)
 
-    return result
-};
+    };
