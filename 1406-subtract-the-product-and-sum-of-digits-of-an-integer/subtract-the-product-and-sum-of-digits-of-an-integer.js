@@ -3,16 +3,11 @@
  * @return {number}
  */
 var subtractProductAndSum = function (n) {
-    let s = n.toString()
-    let arr = s.split('')
+    let arr = n.toString().split('')
 
-    let mul = arr.reduce((acc, e) => {
-        return acc * e
-    })
+    let mul = arr.reduce((acc, e) => acc * e,1)
 
-    let sum = arr.reduce((acc, e) => {
-        return acc = acc + Number(e)
-    },0)
+    let sum = arr.reduce((acc, e) => acc + Number(e),0)
 
     return mul-sum
 };
