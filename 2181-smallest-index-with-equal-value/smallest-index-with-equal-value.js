@@ -7,9 +7,9 @@ var smallestEqual = function (nums) {
         if (index % 10 == val) {
             return index
         } else {
-            return -5
+            return null
         }
-    }).filter((val) => val !== -5);
+    }).filter((val) => val !== null);
 
     if (arr.length == 0) {
         return -1
