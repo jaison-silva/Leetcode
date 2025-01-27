@@ -2,19 +2,18 @@
  * @param {number[]} nums
  * @return {number}
  */
-var smallestEqual = function(nums) {
-    // const arr = nums.filter((val,index)=>{
-    //     if((index%10)==val){
-    //         console.log(index)
-    //         return index
-    //     }
-    // })
+var smallestEqual = function (nums) {
+    const arr = nums.map((val, index) => {
+        if (index % 10 == val) {
+            return index
+        } else {
+            return -5
+        }
+    }).filter((val) => val !== -5);
 
-    for(let i =0; i<nums.length; i++){
-         if((i%10)==nums[i]){
-            return i
-         }
+    if (arr.length == 0) {
+        return -1
+    } else {
+        return arr[0]
     }
-
-    return -1
-}
+};
