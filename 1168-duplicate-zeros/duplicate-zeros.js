@@ -14,5 +14,4 @@ var duplicateZeros = function(arr) {
         }
         i++
     }
-    // arr.splice(length)
 };
