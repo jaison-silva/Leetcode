@@ -3,14 +3,15 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    const dup = new Set()
+    let blah = new Set()
 
-    for(let i of nums){
-        if(dup.has(i)) {
+    for(const val of nums){
+        if(blah.has(val)){
             return true
-            } else{
-                dup.add(i)
-            }
+        }else{
+            blah.add(val)
+        }
     }
+
     return false
 };
