@@ -2,26 +2,17 @@
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
+var isHappy = function (n) {
+    let garbage = []
 
-    let cycle = new Set()
-    let arr = n.toString().split('')
-
-    while(true){
-        
-        let output = arr.reduce((acc,val)=>{
-            return acc += val*val
-        },0)
-
-        if(output == 1 ){
-            return true
-        }
-
-        if(cycle.has(output)){
+    while (true) {
+        if (garbage.includes(n)) {
             return false
         }
-        cycle.add(output)
-        arr = output.toString().split('')
+        garbage.push(n)
+        n = n.toString().split('').map(Number).reduce((acc, val) => acc + val * val,0)
+        if (n == 1) {
+            return true
+        }
     }
-
 };
