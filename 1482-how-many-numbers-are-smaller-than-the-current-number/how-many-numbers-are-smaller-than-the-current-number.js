@@ -2,18 +2,19 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var smallerNumbersThanCurrent = function(nums) {
+var smallerNumbersThanCurrent = function (nums) {
     let result = []
-    let count = 0
+    let obj = {}
+    let order = [...nums].sort((a, b) => a - b)
 
-    for(let i=0; i<nums.length; i++){
-        for(let j=0; j<nums.length; j++){
-            if(i!=j && nums[j]<nums[i]){
-                count++
-            }
+    for (let i = 0; i < order.length; i++) {
+        if (obj[order[i]] == null || undefined) {
+            obj[order[i]] = i
         }
-        result[i] = count
-        count = 0
+    }
+
+    for (let j = 0; j < nums.length; j++) {
+        result.push(obj[nums[j]])
     }
 
     return result
