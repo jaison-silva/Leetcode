@@ -3,14 +3,18 @@
  * @return {number[]}
  */
 var smallerNumbersThanCurrent = function(nums) {
-    let arr = []
-    const result = nums.map((e,x)=>{
-                arr[x] = 0
-        for(let i of nums){
-            if(e>i){
-                arr[x]++
+    let result = []
+    let count = 0
+
+    for(let i=0; i<nums.length; i++){
+        for(let j=0; j<nums.length; j++){
+            if(i!=j && nums[j]<nums[i]){
+                count++
             }
         }
-    })
-    return arr
+        result[i] = count
+        count = 0
+    }
+
+    return result
 };
