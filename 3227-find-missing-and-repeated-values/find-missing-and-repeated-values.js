@@ -3,36 +3,36 @@
  * @return {number[]}
  */
 var findMissingAndRepeatedValues = function(grid) {
-    const n = grid.length
-    const size = n*n
-    let dup = new Set()
-    let a = 0
+    let flat = grid.flat()
+    flat.sort((a,b)=>a-b)
 
-    for(let row of grid){
-        for(let j of row){
-            if(dup.has(j)){
-                a = j
-                break;
-            }else{
-                dup.add(j)
+    let missing = null
+    let duplicate = null
+
+    for(let i=0; i<flat.length; i++){
+        for(let j=i+1; j<flat.length; j++){
+            if(flat[i]==flat[j] && i!==j){
+                duplicate = flat[i]
             }
         }
     }
 
-    const sumOfGrid = (size * (size+1))/2
+    for(let i = 1; i<=flat.length; i++){
+        if(flat.includes(i)){
+            // missing = flat[i]
+            console.log("included")
+        }else{
+            console.log('not included')
+            missing = i
+        }
+    }
 
-        // for(let i of grid){
-        //     for (let j of i){
-        //     }
-        // }
-       let result = grid.reduce((acc,e)=>{
-           return acc + e.reduce((sum,element)=>{
-                return sum + element
-            },0)
-        },0)
+    console.log(flat)
+    console.log("duplicate " + duplicate)
+    console.log("missing " + missing)
 
-    const b = sumOfGrid - result + a
-
-    return [a,b]
-
+    let answer = []
+    answer.push(duplicate ? duplicate : 0)
+    answer.push(missing ? missing : 0)
+    return answer
 };
