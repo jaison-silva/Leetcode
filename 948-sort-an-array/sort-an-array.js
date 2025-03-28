@@ -4,7 +4,7 @@
  */
 var sortArray = function(nums) {
 
-    function mergeSort(nums){
+    return (function mergeSort(nums){
     if(nums.length <=1) return nums
 
         let mid = Math.floor(nums.length/2)
@@ -12,7 +12,7 @@ var sortArray = function(nums) {
         let right = mergeSort(nums.slice(mid))
 
         return merge(left,right)
-    }
+    })(nums)
 
     function merge(left,right){
         let result = []
@@ -30,5 +30,5 @@ var sortArray = function(nums) {
         return [...result,...left.slice(i),...right.slice(j)]
     }
 
-    return mergeSort(nums)
+    // return mergeSort(nums)
 };
