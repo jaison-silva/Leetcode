@@ -24,5 +24,6 @@ var duplicateZeros = function(arr) {
             i++;
         }
     }
+
 };
 
