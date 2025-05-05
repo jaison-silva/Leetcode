@@ -14,5 +14,5 @@ var duplicateZeros = function(arr) {
 
     console.log("arr  "+arr)
     // console.log("index  "+index)
-    arr.length = long
+    arr.splice(long) 
 };
