@@ -2,29 +2,31 @@
  * @param {Array<Function>} functions
  * @return {Promise<any>}
  */
-var promiseAll = function(functions) {
-    return new Promise((resolve,reject)=>{
+var promiseAll = function (functions) {
+
+    return new Promise((resolve, reject) => {
         const results = []
         let completed = 0
 
-        functions.forEach((fn,index)=>{
+        functions.forEach((fn, index) => {
 
             fn()
-            .then((result)=>{
-                completed += 1
-                results[index] = result
+                .then((result) => {
+                    completed += 1
+                    results[index] = result
 
-                if(completed == functions.length){
-                    resolve(results)
-                }
-            })
-            .catch((reason)=>{
-                completed += 1
-                reject(reason)
-            })
+                    if (completed == functions.length) {
+                        resolve(results)
+                    }
+                })
+                .catch((reason) => {
+                    reject(reason)
+                })
 
         })
+
     })
+
 };
 
 /**
