@@ -4,19 +4,9 @@
  * @return {string[]}
  */
 var sortPeople = function(names, heights) {
-    let obj = {}
-    let result = []
+    const sorted = names.map((val,index)=>[val,heights[index]])
 
-    for(let i = 0; i<names.length; i++){
-        obj[heights[i]] = names[i]
-    }
+    console.log(sorted)
+    return sorted.sort((a,b)=>b[1]-a[1]).map((val)=>val[0])
 
-    heights.sort((a,b)=>b-a)
-    console.log(obj)
-
-    for(let j =0; j<names.length; j++){
-        result[j] = obj[heights[j]]
-    }
-
-    return result
 };
