@@ -3,10 +3,5 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    const squareArr = []
-    for(let i of nums){
-        squareArr.push(i*i)
-    }
-
-    return squareArr.sort((a,b)=>a-b)
+    return nums.map((val)=>val*val).sort((a,b)=>a-b)
 };
