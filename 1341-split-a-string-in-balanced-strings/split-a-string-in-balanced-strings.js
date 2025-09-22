@@ -5,19 +5,18 @@
 var balancedStringSplit = function (s) {
     const arr = s.split('')
 
-    let L = 0
-    let R = 0
+    let counter = 0
     let returnVal = 0
 
     arr.forEach((val, index) => {
 
         if (val == "L") {
-            L++
+            counter++
         } else {
-            R++
+            counter--
         }
 
-        if (L == R) {
+        if (counter == 0) {
             returnVal++
         }
 
