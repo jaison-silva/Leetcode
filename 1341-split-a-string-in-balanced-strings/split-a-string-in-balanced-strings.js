@@ -8,18 +8,32 @@ var balancedStringSplit = function (s) {
     let counter = 0
     let returnVal = 0
 
-    arr.forEach((val, index) => {
+    // arr.forEach((val, index) => {
 
-        if (val == "L") {
+    //     if (val == "L") {
+    //         counter++
+    //     } else {
+    //         counter--
+    //     }
+
+    //     if (counter == 0) {
+    //         returnVal++
+    //     }
+
+    // })
+
+
+    return arr.reduce((acc,val)=>{
+        if(val=="L"){
             counter++
-        } else {
+        }else{
             counter--
         }
 
-        if (counter == 0) {
-            returnVal++
+        if(counter==0){
+            return ++acc
+        }else{
+            return acc
         }
-
-    })
-    return returnVal
+    },0)
 };
