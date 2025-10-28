@@ -6,7 +6,6 @@ var maximumValue = function(strs) {
     let resultArr = [];
 
     for (const val of strs) {
-        // If val contains only digits
         if (/^\d+$/.test(val)) {
             resultArr.push(Number(val));
         } else {
