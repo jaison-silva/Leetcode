@@ -3,16 +3,13 @@
  * @return {number[]}
  */
 var runningSum = function(nums) {
-    let result = []
-    let sum = 0
-
-    for(let i=0; i<nums.length; i++){
-        for(let j=0; j<=i; j++){
-            sum += nums[j]
+    return nums.reduce((acc,val,index,arr)=>{
+        if(index==0){
+            acc.push(val)
+        }else{
+            const addition = arr.slice(0,index).reduce((acc,val)=>val+acc)
+            acc.push(addition+val)
         }
-        result.push(sum)
-        sum = 0
-    }
-
-    return result
+        return acc
+    },[])
 };
