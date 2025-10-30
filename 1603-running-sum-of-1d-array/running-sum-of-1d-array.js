@@ -7,8 +7,7 @@ var runningSum = function(nums) {
         if(index==0){
             acc.push(val)
         }else{
-            const addition = arr.slice(0,index).reduce((acc,val)=>val+acc)
-            acc.push(addition+val)
+            acc.push(val+acc[index-1])
         }
         return acc
     },[])
