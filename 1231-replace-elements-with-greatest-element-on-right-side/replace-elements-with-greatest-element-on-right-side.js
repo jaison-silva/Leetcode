@@ -2,14 +2,14 @@
  * @param {number[]} arr
  * @return {number[]}
  */
-var replaceElements = function (arr) {
-    for (let i = 0; i < arr.length-1; i++) {
-        let biggesToRight = -Infinity
-        for (let j = i+1; j < arr.length; j++) {
-            if(arr[j]>biggesToRight) biggesToRight = arr[j]
-        }   
-        arr[i] = biggesToRight
+var replaceElements = function(arr) {
+    let maxRight = -1
+
+    for(let i = arr.length-1; i>=0; i--){
+        let temp = arr[i]
+        arr[i] = maxRight
+        maxRight = Math.max(arr[i],temp)
     }
-    arr[arr.length-1] = -1
+
     return arr
 };
