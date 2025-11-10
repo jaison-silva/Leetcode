@@ -28,8 +28,6 @@ var validMountainArray = function (arr) {
 
     if(left==0 || right == arr.length-1) return false
 
-    if(left== right) return true
-
-    return false
+    return left== right 
 
 };
