@@ -10,8 +10,10 @@ var sortColors = function (nums) {
                 minIndex = j
             }
         }
-        let temp = nums[i]
-        nums[i] = nums[minIndex]
-        nums[minIndex] = temp
+        if (minIndex !== i) {
+            let temp = nums[i]
+            nums[i] = nums[minIndex]
+            nums[minIndex] = temp
+        }
     }
 };
